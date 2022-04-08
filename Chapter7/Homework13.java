@@ -7,7 +7,7 @@ public class Homework13
     public static void main(String[] args)
     {
         PassObject p = new PassObject();
-        Circle c = new Circle(1);
+        Circle c = new Circle();
         p.printAreas(c, 5);
     }    
 }
@@ -16,6 +16,11 @@ class Circle
 {
     double radius;
 
+    public Circle()
+    {
+
+    }
+
     public Circle(double radius)
     {
         this.radius = radius;
@@ -23,9 +28,14 @@ class Circle
 
     public double findArea()
     {
-        double area = 3.14 * radius * radius;
+        double area = Math.PI * radius * radius;
 
         return area;
+    }
+
+    public void setR(double r)
+    {
+        this.radius = r;
     }
 }
 
@@ -36,7 +46,8 @@ class PassObject
         System.out.println("Radius\tArea");
         for (int i = 1; i <= times; i++)
         {
-            System.out.println(i + "\t" + c.findArea());
+            c.setR(i);
+            System.out.println((double)i + "\t" + c.findArea());
             c = new Circle(i + 1);
         }
     }
