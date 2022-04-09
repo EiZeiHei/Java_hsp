@@ -24,7 +24,7 @@ public class SmallChangeSys {
     String item;
     String flag;
 
-    public void menu () {
+    public void menu() {
         do {
             System.out.println("-------------零钱通菜单------------");
             System.out.println("\t\t\t1 零钱通明细");
@@ -36,24 +36,20 @@ public class SmallChangeSys {
             key = scanner.next();
 
             switch (key) {
-                case("1"):
-                    //1 零钱通明细
-                    this.detail();
-                    break;
-                case("2"):
-                    //2 收益入账
-                    this.income();
-                    break;
-                case("3"):
-                    //3 消费
-                    this.cost();
-                    break;
-                case("4"):
-                    //4 退出
-                    this.exit();
-                    break;
-                default:
-                    break;
+                case ("1") ->
+                        //1 零钱通明细
+                        this.detail();
+                case ("2") ->
+                        //2 收益入账
+                        this.income();
+                case ("3") ->
+                        //3 消费
+                        this.cost();
+                case ("4") ->
+                        //4 退出
+                        this.exit();
+                default -> {
+                }
             }
 
         } while (loop);
@@ -61,12 +57,12 @@ public class SmallChangeSys {
         System.out.println("退出了零钱通项目");
     }
 
-    public void detail () {
+    public void detail() {
         System.out.println(detail);
         System.out.println();
     }
 
-    public void income () {
+    public void income() {
         System.out.print("请输入收益入账金额：");
         money = scanner.nextDouble();
 
@@ -79,7 +75,7 @@ public class SmallChangeSys {
         detail += "\n收益入账\t+" + money + "\t" + sdf.format(date) + "\t余额：" + balance;
     }
 
-    public void cost () {
+    public void cost() {
         System.out.print("请输入消费金额：");
         money = scanner.nextDouble();
 
@@ -95,16 +91,13 @@ public class SmallChangeSys {
         detail += "\n" + item + "\t-" + money + "\t" + sdf.format(date) + "\t余额：" + balance;
     }
 
-    public void exit () {
+    public void exit() {
         System.out.println("你确定要退出吗？y/n");
 
-        while (true) {
+        do {
             flag = scanner.next();
 
-            if (flag.equals("y") || flag.equals("n")) {
-                break;
-            }
-        }
+        } while (!flag.equals("y") && !flag.equals("n"));
 
         if (flag.equals("y")) {
             loop = false;
