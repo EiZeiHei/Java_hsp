@@ -14,20 +14,11 @@ public class Tank {
 
     public void move(int dir) {
         switch (dir) {
-            case 0:
-                y -= speed;
-                break;
-            case 1:
-                x += speed;
-                break;
-            case 2:
-                y += speed;
-                break;
-            case 3:
-                x -= speed;
-                break;
-            default:
-                System.out.println("Error");
+            case 0 -> y -= speed;
+            case 1 -> x += speed;
+            case 2 -> y += speed;
+            case 3 -> x -= speed;
+            default -> System.out.println("Error");
         }
     }
 
