@@ -4,14 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TankGame extends JFrame {
-    private Panel panel;
 
     public static void main(String[] args) {
-        TankGame tankGame = new TankGame();
+        new TankGame();
     }
 
     public TankGame() throws HeadlessException {
-        panel = new Panel();
+        Panel panel = new Panel();
 
         new Thread(panel).start();
 

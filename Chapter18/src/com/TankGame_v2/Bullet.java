@@ -3,8 +3,7 @@ package com.TankGame_v2;
 public class Bullet implements Runnable {
     private int x;
     private int y;
-    private int dir = 0;
-    private int speed = 2;
+    private final int dir;
     private boolean isLive = true;
 
     public Bullet(int x, int y, int dir) {
@@ -22,24 +21,21 @@ public class Bullet implements Runnable {
                 throw new RuntimeException(e);
             }
 
+            int speed = 2;
             switch (dir) {
-                case 0://上
-                    y -= speed;
-                    break;
-                case 1://右
-                    x += speed;
-                    break;
-                case 2://下
-                    y += speed;
-                    break;
-                case 3://左
-                    x -= speed;
-                    break;
+                case 0 ->//上
+                        y -= speed;
+                case 1 ->//右
+                        x += speed;
+                case 2 ->//下
+                        y += speed;
+                case 3 ->//左
+                        x -= speed;
             }
 
             System.out.println("子弹 x=" + x + " y=" + y);
             //当子弹移动到面板的边界时，就应该销毁（把启动的子弹的线程销毁)
-            if (!(x >= 0 && x <= 800 && y >= 0 && y <= 600)) {
+            if (!(x >= 0 && x <= 800 && y >= 0 && y <= 600 && isLive)) {
                 System.out.println("子弹线程退出");
                 isLive = false;
                 break;
@@ -51,32 +47,8 @@ public class Bullet implements Runnable {
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
     public int getY() {
         return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getDir() {
-        return dir;
-    }
-
-    public void setDir(int dir) {
-        this.dir = dir;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
     }
 
     public boolean isLive() {

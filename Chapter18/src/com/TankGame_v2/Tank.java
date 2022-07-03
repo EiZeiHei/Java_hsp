@@ -4,7 +4,8 @@ public class Tank {
     private int x;
     private int y;
     private int dir;
-    private int speed;
+    private final int speed;
+    private boolean isLive = true;
 
     public Tank(int x, int y) {
         this.x = x;
@@ -26,16 +27,8 @@ public class Tank {
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
     public int getY() {
         return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
     }
 
     public int getDir() {
@@ -44,5 +37,13 @@ public class Tank {
 
     public void setDir(int dir) {
         this.dir = dir;
+    }
+
+    public boolean isLive() {
+        return isLive;
+    }
+
+    public void setLive(boolean live) {
+        isLive = live;
     }
 }
